@@ -45,15 +45,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https:&#x2F;&#x2F;fogcrane.github.io&#x2F;tags&#x2F;index.html">
+  <meta name="description" content="实现思路 将需要绘制的海报封装于一个组件内，一般按照宽度750进行绘制。 将海报组件直接放到海报展示页面 最顶部 且 在屏幕可见范围内。 用 absolute 和 z-index 隐藏海报组件。">
+<meta name="keywords" content="html2canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html2canvas绘图相关事项">
+<meta property="og:url" content="https:&#x2F;&#x2F;fogcrane.github.io&#x2F;html2canvas-precaution&#x2F;index.html">
 <meta property="og:site_name" content="鳕鱼の菜圃">
+<meta property="og:description" content="实现思路 将需要绘制的海报封装于一个组件内，一般按照宽度750进行绘制。 将海报组件直接放到海报展示页面 最顶部 且 在屏幕可见范围内。 用 absolute 和 z-index 隐藏海报组件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-02T11:15:21.876Z">
+<meta property="og:updated_time" content="2020-06-09T08:40:14.705Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://fogcrane.github.io/tags/">
+<link rel="canonical" href="https://fogcrane.github.io/html2canvas-precaution/">
 
 
 <script id="page-configurations">
@@ -61,14 +64,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>tags | 鳕鱼の菜圃
-  </title>
+  <title>html2canvas绘图相关事项 | 鳕鱼の菜圃</title>
   
 
 
@@ -177,52 +179,119 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fogcrane.github.io/html2canvas-precaution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="鳕鱼">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鳕鱼の菜圃">
+    </span>
       <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          html2canvas绘图相关事项
+        </h2>
 
-<h2 class="post-title" itemprop="name headline">tags
-</h2>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2020-06-09 16:08:31 / 修改时间：16:40:14" itemprop="dateCreated datePublished" datetime="2020-06-09T16:08:31+08:00">2020-06-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E9%A1%B5%E7%BB%98%E5%9B%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">网页绘图</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><ul>
+<li>将需要绘制的海报封装于一个组件内，一般按照宽度750进行绘制。</li>
+<li>将海报组件直接放到海报展示页面 <strong>最顶部</strong> 且 <strong>在屏幕可见范围内</strong>。</li>
+<li>用 <strong>absolute</strong> 和 <strong>z-index</strong> 隐藏海报组件。<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"index"</span>&gt;</span> <span class="comment">&lt;!-- 海报待展示页面 --&gt;</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"share-result-card"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 海报组件 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.share-result-card</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">position</span>: absolute;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">width</span>: <span class="number">750px</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">height</span>: <span class="number">1334px</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">z-index</span>: -<span class="number">2</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li>海报内涉及到的所有图片资源，都要使用<code>&lt;img&gt;</code>标签，不可以使用<code>css背景图片</code>，否则会导致图片不清晰问题。</li>
+<li>推荐配置说明：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  x: <span class="number">0</span>,                      <span class="comment">// 水平偏移量，推荐设置为0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  y: <span class="number">0</span>,                      <span class="comment">// 垂直偏移量，推荐设置为0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  backgroundColor: <span class="literal">null</span>,     <span class="comment">// canvas 背景色，按需设置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  scale: <span class="number">3</span>,                  <span class="comment">// 比例换算，按需设置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr></table></figure></li>
+<li>图片链接跨域问题，所有海报上的图片链接，都应该以当前项目的域名一致，否则会导致绘图失败。</li>
+<li>图片格式尽可能为<code>png</code>或者<code>jpeg</code>格式，尽量避免使用<code>svg</code>格式的图片。</li>
+</ol>
+<h4 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h4><p><a href="http://html2canvas.hertzen.com/configuration/" target="_blank" rel="noopener">html2canvas相关配置文档</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/html2canvas/" rel="tag"><i class="fa fa-tag"></i> html2canvas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/fast-sort/" rel="prev" title="快速排序算法">
+      <i class="fa fa-chevron-left"></i> 快速排序算法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/algorithm/" style="font-size: 12px; color: #ccc">algorithm</a> <a href="/tags/html2canvas/" style="font-size: 12px; color: #ccc">html2canvas</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
@@ -252,6 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路"><span class="nav-number">1.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关资料"><span class="nav-number">4.</span> <span class="nav-text">相关资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
